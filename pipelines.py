@@ -104,6 +104,7 @@ class QGPipeline:
             max_length=32,
         )
         st.write(f"Outs _extract_answers: {outs}")
+        st.wrtie(f"decode example _extract_answers: {self.ans_tokenizer.decode(outs[0], skip_special_tokens=False)}")
         
         dec = [self.ans_tokenizer.decode(ids, skip_special_tokens=False) for ids in outs]
         
