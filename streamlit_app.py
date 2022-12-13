@@ -1,4 +1,5 @@
 import streamlit as st
+import traceback
 import pandas as pd
 from annotated_text import annotated_text
 
@@ -182,7 +183,7 @@ try:
 except Exception as e:
     st.warning(
         f"""
-    🔮 **Snap!** This exception occurred {e.ToString()}. 
+    🔮 **Snap!** This exception occurred {traceback.print_exc()}. 
     
     """
     )
