@@ -3,7 +3,7 @@ requests==2.24.0
 requests-html==0.10.0
 st-annotated-text
 setuptools_rust
-
+sentencepiece
 nltk==3.5
 transformers==4.9.2
 torch
