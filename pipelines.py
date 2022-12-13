@@ -94,12 +94,16 @@ class QGPipeline:
     def _extract_answers(self, context):
         sents, inputs = self._prepare_inputs_for_ans_extraction(context)
         inputs = self._tokenize(inputs, padding=True, truncation=True)
-
+        
+        # DEBUG
+        st.write(f"_extract_answers inputs: {inputs}")
+        
         outs = self.ans_model.generate(
             input_ids=inputs['input_ids'].to(self.device), 
             attention_mask=inputs['attention_mask'].to(self.device), 
             max_length=32,
         )
+        st.write(f"Outs _extract_answers: {outs}")
         
         dec = [self.ans_tokenizer.decode(ids, skip_special_tokens=False) for ids in outs]
         
