@@ -182,7 +182,9 @@ try:
 except Exception as e:
     st.warning(
         f"""
-    🔮 **Snap!** This exception occurred {e}. \n Seems like there's an issue with that URL, please try another one. If the issue persists, [reach me out on Gitter!](https://gitter.im/DataChaz/what-the-FAQ)
+    🔮 **Snap!** This exception occurred {e.ToString()}. 
+    
     """
     )
+#     Seems like there's an issue with that URL, please try another one. If the issue persists, [reach me out on Gitter!](https://gitter.im/DataChaz/what-the-FAQ)
     st.stop()
