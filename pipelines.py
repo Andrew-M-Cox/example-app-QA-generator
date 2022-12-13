@@ -56,6 +56,13 @@ class QGPipeline:
         sents, answers = self._extract_answers(inputs)
         flat_answers = list(itertools.chain(*answers))
         
+        #######
+        # Debug
+        #######
+        st.write(f"Inputs: {inputs}")
+        st.write(f"Sents: {sents}")
+        st.write(f"Answers:{answers}")
+        
         if len(flat_answers) == 0:
           return []
 
