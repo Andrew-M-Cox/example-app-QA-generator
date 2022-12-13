@@ -59,9 +59,9 @@ class QGPipeline:
         #######
         # Debug
         #######
-        st.write(f"Inputs: {inputs}")
-        st.write(f"Sents: {sents}")
-        st.write(f"Answers:{answers}")
+#         st.write(f"Inputs: {inputs}")
+#         st.write(f"Sents: {sents}")
+        st.write(f"Answers post extraction:{answers}")
         
         if len(flat_answers) == 0:
           return []
@@ -102,8 +102,17 @@ class QGPipeline:
         )
         
         dec = [self.ans_tokenizer.decode(ids, skip_special_tokens=False) for ids in outs]
+        
+        #######
+        # DEBUG
+        #######
+        st.write(f"Dec: {dec}")
+        
         answers = [item.split('<sep>') for item in dec]
+        st.write(f"Answers from dec: {answers}")
+        
         answers = [i[:-1] for i in answers]
+        st.write(f"Answers list comp: {answers}")
         
         return sents, answers
     
