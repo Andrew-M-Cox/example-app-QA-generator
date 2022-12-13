@@ -83,7 +83,7 @@ class QGPipeline:
         questions = [self.tokenizer.decode(ids, skip_special_tokens=True) for ids in outs]
         return questions
     
-    @st.cache(allow_output_mutation=True)    
+    @st.cache(hash_funcs={tokenizers.Tokenizer: _extract_answers()}, allow_output_mutation=True)    
     def _extract_answers(self, context):
         sents, inputs = self._prepare_inputs_for_ans_extraction(context)
         inputs = self._tokenize(inputs, padding=True, truncation=True)
