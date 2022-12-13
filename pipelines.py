@@ -106,6 +106,7 @@ class QGPipeline:
         st.write(f"Outs _extract_answers: {outs}")
         st.write(f"decode example _extract_answers: {self.ans_tokenizer.decode(outs[0][0], skip_special_tokens=False)}")
         st.write(f"outs[0] examples _extract_answers: {outs[0]}")
+        
         st.write(f"outs[0][0] examples _extract_answers: {outs[0][0]}")
         
         
