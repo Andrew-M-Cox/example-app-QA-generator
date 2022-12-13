@@ -69,7 +69,7 @@ class QGPipeline:
         output = [{'answer': example['answer'], 'question': que} for example, que in zip(qg_examples, questions)]
         return output
 
-    @st.cache(allow_output_mutation=True)
+#     @st.cache(allow_output_mutation=True)
     def _generate_questions(self, inputs):
         inputs = self._tokenize(inputs, padding=True, truncation=True)
         
@@ -100,7 +100,7 @@ class QGPipeline:
         
         return sents, answers
     
-    @st.cache(allow_output_mutation=True)
+#     @st.cache(allow_output_mutation=True)
     def _tokenize(self,
         inputs,
         padding=True,
@@ -119,7 +119,7 @@ class QGPipeline:
         )
         return inputs
 
-    @st.cache(allow_output_mutation=True)
+#     @st.cache(allow_output_mutation=True)
     def _prepare_inputs_for_ans_extraction(self, text):
         sents = sent_tokenize(text)
 
@@ -138,7 +138,7 @@ class QGPipeline:
 
         return sents, inputs
     
-    @st.cache(allow_output_mutation=True)
+#     @st.cache(allow_output_mutation=True)
     def _prepare_inputs_for_qg_from_answers_hl(self, sents, answers):
         inputs = []
         for i, answer in enumerate(answers):
@@ -168,7 +168,7 @@ class QGPipeline:
         
         return inputs
 
-    @st.cache(allow_output_mutation=True)
+#     @st.cache(allow_output_mutation=True)
     def _prepare_inputs_for_qg_from_answers_prepend(self, context, answers):
         flat_answers = list(itertools.chain(*answers))
         examples = []
@@ -214,7 +214,7 @@ class MultiTaskQAQGPipeline(QGPipeline):
         return answer
 
 
-@st.cache(allow_output_mutation=True)
+# @st.cache(allow_output_mutation=True)
 class E2EQGPipeline:
     def __init__(
         self,
@@ -324,7 +324,7 @@ SUPPORTED_TASKS = {
 }
 
 #@st.cache
-@st.cache(allow_output_mutation=True)
+# @st.cache(allow_output_mutation=True)
 def pipeline(
     task: str,
     model: Optional = None,
